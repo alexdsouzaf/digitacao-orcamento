@@ -42,7 +42,7 @@ export class PrincipalComponent {
 		const id = this.orcamentoService.cadastrar(orcamentoModel)
 
 		const url = this.router.serializeUrl(
-			this.router.createUrlTree(['impressao'], {
+			this.router.createUrlTree(['digitacao-orcamento/impressao'], {
 				queryParams: { pId: id }
 			})
 		);
