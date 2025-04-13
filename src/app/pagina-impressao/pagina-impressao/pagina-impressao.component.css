@@ -1,0 +1,82 @@
+/* body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+} */
+
+.margem-tabela {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.span-linha-b-1 {
+    border-bottom: 1px solid gray;
+}
+
+.span-linha-b-2 {
+    border-bottom: 2px solid gray;
+}
+
+.infos {
+    /* background-color: #f6f6f6; */
+    padding: 20px;
+    border: 2px solid #ccc;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.infos label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.orcamento-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.bottom-bar .data,
+.bottom-bar .total {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.total-box {
+    border: 1px solid #000;
+    width: 120px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@media print {
+    input {
+        border: none;
+    }
+}
+
+.header-image {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+/*referencia no ts do componente*/
+@media screen {
+    :host {
+        display: none;
+    }
+}

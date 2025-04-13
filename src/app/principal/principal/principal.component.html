@@ -1,0 +1,134 @@
+<main class="principal">
+
+    <div class="d-flex justify-content-between mt-5">
+        <h1>Orçamento</h1>
+        <app-gato></app-gato>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5>
+                Dados do Cliente
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col">
+                    <div class="mb-3">
+                        <label class="form-label">Cliente</label>
+                        <input type="email" class="form-control form-control-sm"
+                            [formControl]="clienteForm.controls.nome">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="mb-3">
+                        <label class="form-label">E-mail</label>
+                        <input type="email" class="form-control" [formControl]="clienteForm.controls.email">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="mb-3">
+                        <label class="form-label">Endereço</label>
+                        <input type="text" class="form-control" [formControl]="clienteForm.controls.endereco">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <!--todo mascara para o campo de telefone-->
+                    <div class="mb-3">
+                        <label class="form-label">Telefone</label>
+                        <input type="number" class="form-control" [formControl]="clienteForm.controls.telefone">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5>
+                Serviços/Produtos
+            </h5>
+        </div>
+
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col">
+                    <div class="mb-3">
+                        <label class="form-label">Quantidade</label>
+                        <input type="number" class="form-control" [formControl]="itemForm.controls.quantidade">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="mb-3">
+                        <label class="form-label">Descrição</label>
+                        <input type="text" class="form-control" [formControl]="itemForm.controls.descricao">
+                    </div>
+                </div>
+                <div class="col">
+                    <!--todo mascara monetaria-->
+                    <div class="mb-3">
+                        <label class="form-label">Valor Unitário</label>
+                        <input type="number" class="form-control" [formControl]="itemForm.controls.unitario">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer d-flex justify-content-end">
+            <button (click)="adicionarItem()" type="button" class="btn btn-outline-success">Adicionar</button>
+            @if(indexEmAlteracao() !== -1){
+            <button (click)="cancelarEdicao()" type="button" class="btn btn-outline-warning ms-3">Cancelar</button>
+            }
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between">
+            <h5>Itens</h5>
+            <button (click)="openNewTab()" type="button" class="btn btn-outline-secondary">imprimir</button>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Quantidade</th>
+                        <th>Descrição</th>
+                        <th>Unitário</th>
+                        <th>Total</th>
+                        <th>Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @for(item of listaItensOrcamento(); track item; let i = $index){
+                    <tr>
+                        <td>
+                            {{item.quantidade}}
+                        </td>
+                        <td>
+                            {{item.descricao}}
+                        </td>
+                        <td>
+                            {{item.unitario}}
+                        </td>
+                        <td>
+                            {{item.subtotal}}
+                        </td>
+                        <td>
+                            <button (click)="alterarItem(item, i)" type="button" class="btn" title="Alterar">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button (click)="removerItem(i)" type="button" class="btn" title="Remover">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</main>

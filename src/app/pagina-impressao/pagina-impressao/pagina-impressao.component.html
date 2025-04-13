@@ -1,0 +1,49 @@
+<!-- Cabeçalho como imagem -->
+<img src="/assets/modelo/LogoPL.png" alt="Painter Laqueamento" class="header-image" />
+
+<div class="infos blocos-margem">
+	<label class="span-linha-b-1">Cliente: <span class="">{{clienteForm.controls.nome.value}}</span></label>
+	<label class="span-linha-b-1">Email: <span class="">{{clienteForm.controls.email.value}}</span></label>
+	<label class="span-linha-b-1">Endereço: <span class="">{{clienteForm.controls.endereco.value}}</span></label>
+	<label class="span-linha-b-1">Telefone: <span class="">{{clienteForm.controls.telefone.value}}</span></label>
+</div>
+
+<div class="orcamento-title">ORÇAMENTO</div>
+
+<div class="margem-tabela">
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="w-20 text-end">Quantidade</th>
+				<th class="w-40">Descrição</th>
+				<th class="w-20 text-end">Unitário (R$)</th>
+				<th class="w-20 text-end">Total (R$)</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for(item of listaItensOrcamento(); track item){
+			<tr>
+				<td class="text-end">
+					{{item.quantidade}}
+				</td>
+				<td>
+					{{item.descricao}}
+				</td>
+				<td class="text-end">
+					{{item.unitario}}
+				</td>
+				<td class="text-end">
+					{{item.subtotal}}
+				</td>
+			</tr>
+			}
+
+		</tbody>
+	</table>
+</div>
+
+<div class="bottom-bar">
+	<div class="data">DATA: <span class="span-linha-b-2">{{dataAtual().getDate()}} / {{dataAtual().getMonth() + 1}} / {{dataAtual().getFullYear()}}</span></div>
+	<div class="total">TOTAL (R$): <span class="total-box text-center">{{total()}}</span></div>
+</div>
+<router-outlet></router-outlet>

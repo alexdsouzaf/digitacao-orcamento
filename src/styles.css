@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Glacial Indiferrence';
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: white;
+}
+
+.w-10{
+    width: 10%;
+}
+.w-20{
+    width: 20%;
+}
+.w-40{
+    width: 40%;
+}
