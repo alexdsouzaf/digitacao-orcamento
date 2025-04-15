@@ -1,4 +1,7 @@
 .principal{
-    margin-left: 75px;
-    margin-right: 75px;
+    width: 1200px;
+}
+
+.btn-sem-padding{
+    padding: 0px;
 }

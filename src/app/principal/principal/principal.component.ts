@@ -7,10 +7,11 @@ import { OrcamentoService } from '../../service/orcamentoService';
 import { ItemModelForm } from '../../models/itemModel';
 import { ClienteModelForm } from '../../models/clienteModel';
 import { GatoComponent } from "../../gato/gato/gato.component";
+import { TelefoneMaskDirective } from '../../service/telefone-mask.directive';
 
 @Component({
 	selector: 'app-principal',
-	imports: [RouterOutlet, ReactiveFormsModule, GatoComponent],
+	imports: [RouterOutlet, ReactiveFormsModule, GatoComponent, TelefoneMaskDirective],
 	templateUrl: './principal.component.html',
 	styleUrl: './principal.component.css'
 })
@@ -48,6 +49,10 @@ export class PrincipalComponent {
 		);
 
 		window.open(url, '_blank');
+	}
+
+	navegaParaOutraRota() {
+		this.router.navigate(['impressao'])
 	}
 
 	adicionarItem() {
@@ -88,7 +93,7 @@ export class PrincipalComponent {
 
 	}
 
-	cancelarEdicao(){
+	cancelarEdicao() {
 		this.indexEmAlteracao.set(-1)
 		this.itemForm.reset();
 	}
