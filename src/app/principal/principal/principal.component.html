@@ -15,6 +15,7 @@
             <!--todo: quero mudar esses inputs e essas labels soltas para um componente com floating label-->
             <div class="card-body">
                 <div class="row g-3">
+                    
                     <div class="col-4">
                         <div class="mb-3">
                             <label class="form-label">Cliente</label>
@@ -26,21 +27,21 @@
                     <div class="col-2">
                         <div class="mb-3">
                             <label class="form-label">E-mail</label>
-                            <input type="email" class="form-control" [formControl]="clienteForm.controls.email">
+                            <input type="email" class="form-control form-control-sm" [formControl]="clienteForm.controls.email">
                         </div>
                     </div>
 
                     <div class="col-4">
                         <div class="mb-3">
                             <label class="form-label">Endereço</label>
-                            <input type="text" class="form-control" [formControl]="clienteForm.controls.endereco">
+                            <input type="text" class="form-control form-control-sm" [formControl]="clienteForm.controls.endereco">
                         </div>
                     </div>
 
                     <div class="col-2">
                         <div class="mb-3">
                             <label class="form-label">Telefone</label>
-                            <input type="text" appTelefoneMask class="form-control"
+                            <input type="text" appTelefoneMask class="form-control form-control-sm"
                                 [formControl]="clienteForm.controls.telefone">
                         </div>
                     </div>
@@ -60,14 +61,14 @@
                     <div class="col-8">
                         <div class="mb-3">
                             <label class="form-label">Descrição</label>
-                            <input type="text" class="form-control" [formControl]="itemForm.controls.descricao">
+                            <input type="text" class="form-control form-control-sm" [formControl]="itemForm.controls.descricao">
                         </div>
                     </div>
 
                     <div class="col-2">
                         <div class="mb-3">
                             <label class="form-label">Quantidade</label>
-                            <input type="text" class="form-control" [formControl]="itemForm.controls.quantidade"
+                            <input type="text" class="form-control form-control-sm" [formControl]="itemForm.controls.quantidade"
                                 currencyMask [options]="{ prefix: '', thousands: '.', decimal: ',' }">
                         </div>
                     </div>
@@ -75,7 +76,7 @@
                     <div class="col-2">
                         <div class="mb-3">
                             <label class="form-label">Valor Unitário</label>
-                            <input type="text" class="form-control" [formControl]="itemForm.controls.unitario"
+                            <input type="text" class="form-control form-control-sm" [formControl]="itemForm.controls.unitario"
                                 currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
                         </div>
                     </div>

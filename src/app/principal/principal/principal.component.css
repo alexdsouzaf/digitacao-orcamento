@@ -26,6 +26,9 @@ input{
     border: purple solid 1px;
 }
 
+input:focus{
+    background-color:#292929;
+}
 
 .input-sem-bg-color {
     background-color: transparent;
