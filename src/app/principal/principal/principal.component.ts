@@ -8,10 +8,12 @@ import { ItemModelForm } from '../../models/itemModel';
 import { ClienteModelForm } from '../../models/clienteModel';
 import { GatoComponent } from "../../gato/gato/gato.component";
 import { TelefoneMaskDirective } from '../../service/telefone-mask.directive';
+import { CurrencyPipe } from '@angular/common';
+import { NgxCurrencyDirective } from 'ngx-currency';
 
 @Component({
 	selector: 'app-principal',
-	imports: [RouterOutlet, ReactiveFormsModule, GatoComponent, TelefoneMaskDirective],
+	imports: [RouterOutlet, ReactiveFormsModule, GatoComponent, TelefoneMaskDirective, CurrencyPipe, NgxCurrencyDirective, ],
 	templateUrl: './principal.component.html',
 	styleUrl: './principal.component.css'
 })
@@ -97,4 +99,5 @@ export class PrincipalComponent {
 		this.indexEmAlteracao.set(-1)
 		this.itemForm.reset();
 	}
+
 }
