@@ -1,13 +1,13 @@
 $color-black: #161616;
 $color-white: #fff;
-$size: 80px; //170px (Fully responsive)
+$size: 48px; //170px (Fully responsive)
 
 
 // Cat
 .cat {
 	position: relative;
 	height: $size;
-	width: $size * 1.13;
+	width: $size; //* 1.13
 }
 
 // Ears

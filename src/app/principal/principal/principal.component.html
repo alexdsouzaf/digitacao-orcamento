@@ -1,134 +1,141 @@
-<main class="principal">
-
-    <div class="d-flex justify-content-between mt-5">
+<!--todo transformar esse navbar em um componente para ser usado em todas as telas-->
+<!--todo ou simplesmente movido pro index.html-->
+<nav class="navbar navbar-light bg-dark mb-3">
+    <div class="container-fluid">
         <h1>Orçamento</h1>
-        <app-gato></app-gato>
+        <app-gato class="mt-3"></app-gato>
     </div>
-    <div class="card mb-3">
-        <div class="card-header">
-            <h5>
-                Dados do Cliente
-            </h5>
-        </div>
-        <div class="card-body">
-            <div class="row g-3">
-                <div class="col">
-                    <div class="mb-3">
-                        <label class="form-label">Cliente</label>
-                        <input type="email" class="form-control form-control-sm"
-                            [formControl]="clienteForm.controls.nome">
-                    </div>
-                </div>
+</nav>
+<div class="d-flex justify-content-center">
+    <main class="principal">
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5>Dados do Cliente</h5>
+            </div>
+            <!--todo: quero mudar esses inputs e essas labels soltas para um componente com floating label-->
+            <div class="card-body">
+                <div class="row g-3">
 
-                <div class="col">
-                    <div class="mb-3">
-                        <label class="form-label">E-mail</label>
-                        <input type="email" class="form-control" [formControl]="clienteForm.controls.email">
+                    <div class="col-4">
+                        <div class="mb-3">
+                            <label class="form-label">Cliente</label>
+                            <input type="email" class="form-control form-control-sm"
+                                [formControl]="clienteForm.controls.nome">
+                        </div>
                     </div>
-                </div>
 
-                <div class="col">
-                    <div class="mb-3">
-                        <label class="form-label">Endereço</label>
-                        <input type="text" class="form-control" [formControl]="clienteForm.controls.endereco">
+                    <div class="col-2">
+                        <div class="mb-3">
+                            <label class="form-label">E-mail</label>
+                            <input type="email" class="form-control form-control-sm"
+                                [formControl]="clienteForm.controls.email">
+                        </div>
                     </div>
-                </div>
 
-                <div class="col">
-                    <!--todo mascara para o campo de telefone-->
-                    <div class="mb-3">
-                        <label class="form-label">Telefone</label>
-                        <input type="number" class="form-control" [formControl]="clienteForm.controls.telefone">
+                    <div class="col-4">
+                        <div class="mb-3">
+                            <label class="form-label">Endereço</label>
+                            <input type="text" class="form-control form-control-sm"
+                                [formControl]="clienteForm.controls.endereco">
+                        </div>
+                    </div>
+
+                    <div class="col-2">
+                        <div class="mb-3">
+                            <label class="form-label">Telefone</label>
+                            <input type="text" appTelefoneMask class="form-control form-control-sm"
+                                [formControl]="clienteForm.controls.telefone">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="card mb-3">
-        <div class="card-header">
-            <h5>
-                Serviços/Produtos
-            </h5>
-        </div>
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5>Serviços/Produtos</h5>
+            </div>
 
-        <div class="card-body">
-            <div class="row g-3">
-                <div class="col">
-                    <div class="mb-3">
-                        <label class="form-label">Quantidade</label>
-                        <input type="number" class="form-control" [formControl]="itemForm.controls.quantidade">
+            <div class="card-body">
+                <div class="row g-3">
+
+                    <div class="col-8">
+                        <div class="mb-3">
+                            <label class="form-label">Descrição</label>
+                            <input type="text" class="form-control form-control-sm"
+                                [formControl]="itemForm.controls.descricao">
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="mb-3">
-                        <label class="form-label">Descrição</label>
-                        <input type="text" class="form-control" [formControl]="itemForm.controls.descricao">
+
+                    <div class="col-2">
+                        <div class="mb-3">
+                            <label class="form-label">Quantidade</label>
+                            <input type="text" class="form-control form-control-sm"
+                                [formControl]="itemForm.controls.quantidade" currencyMask
+                                [options]="{ prefix: '', thousands: '.', decimal: ',' }">
+                        </div>
                     </div>
-                </div>
-                <div class="col">
-                    <!--todo mascara monetaria-->
-                    <div class="mb-3">
-                        <label class="form-label">Valor Unitário</label>
-                        <input type="number" class="form-control" [formControl]="itemForm.controls.unitario">
+
+                    <div class="col-2">
+                        <div class="mb-3">
+                            <label class="form-label">Valor Unitário</label>
+                            <input type="text" class="form-control form-control-sm"
+                                [formControl]="itemForm.controls.unitario" currencyMask
+                                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="card-footer d-flex justify-content-end">
+                <button (click)="adicionarItem()" type="button" class="btn btn-outline-success">Adicionar</button>
+                @if(indexEmAlteracao() !== -1){
+                <button (click)="cancelarEdicao()" type="button" class="btn btn-outline-warning ms-3">Cancelar</button>
+                }
+            </div>
         </div>
-        <div class="card-footer d-flex justify-content-end">
-            <button (click)="adicionarItem()" type="button" class="btn btn-outline-success">Adicionar</button>
-            @if(indexEmAlteracao() !== -1){
-            <button (click)="cancelarEdicao()" type="button" class="btn btn-outline-warning ms-3">Cancelar</button>
-            }
-        </div>
-    </div>
 
-    <div class="card mb-3">
-        <div class="card-header d-flex justify-content-between">
-            <h5>Itens</h5>
-            <button (click)="openNewTab()" type="button" class="btn btn-outline-secondary">imprimir</button>
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                <h5>Itens</h5>
+                <button (click)="openNewTab()" type="button" class="btn btn-outline-secondary">imprimir</button>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Descrição</th>
+                            <th class="text-end">Quantidade</th>
+                            <th class="text-end">Unitário</th>
+                            <th class="text-end">Total</th>
+                            <th>Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(item of listaItensOrcamento(); track item; let i = $index){
+                        <tr>
+                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}">{{item.descricao}}</td>
+                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}" class="text-end">
+                                {{item.quantidade | currency:'BRL':''}}</td>
+                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}" class="text-end">
+                                {{item.unitario | currency:'BRL':''}}</td>
+                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}" class="text-end">
+                                {{item.subtotal | currency:'BRL':''}}</td>
+                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}">
+                                <button (click)="alterarItem(item, i)" type="button"
+                                    class="btn btn-sem-padding me-3 color-botao" title="Alterar">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button (click)="removerItem(i)" type="button" class="btn btn-sem-padding color-botao"
+                                    title="Remover">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="card-body">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Quantidade</th>
-                        <th>Descrição</th>
-                        <th>Unitário</th>
-                        <th>Total</th>
-                        <th>Opções</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    @for(item of listaItensOrcamento(); track item; let i = $index){
-                    <tr>
-                        <td>
-                            {{item.quantidade}}
-                        </td>
-                        <td>
-                            {{item.descricao}}
-                        </td>
-                        <td>
-                            {{item.unitario}}
-                        </td>
-                        <td>
-                            {{item.subtotal}}
-                        </td>
-                        <td>
-                            <button (click)="alterarItem(item, i)" type="button" class="btn" title="Alterar">
-                                <i class="bi bi-pencil"></i>
-                            </button>
-                            <button (click)="removerItem(i)" type="button" class="btn" title="Remover">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-</main>
+    </main>
+</div>

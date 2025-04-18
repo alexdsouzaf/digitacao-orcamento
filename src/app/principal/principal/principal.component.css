@@ -1,4 +1,40 @@
-.principal{
-    margin-left: 75px;
-    margin-right: 75px;
+.principal {
+    width: 1200px;
+}
+
+.btn-sem-padding {
+    padding: 0px;
+}
+
+.cor-alteracao {
+    background-color: beige;
+}
+
+.card {
+    background-color: #191919;
+    color: white;
+}
+
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-color: white;
+}
+
+input{
+    background-color: transparent;
+    color: white;
+    border: purple solid 1px;
+}
+
+input:focus{
+    background-color:#292929;
+    color: white;
+}
+
+.input-sem-bg-color {
+    background-color: transparent;
+}
+
+.color-botao{
+    color: white;
 }
