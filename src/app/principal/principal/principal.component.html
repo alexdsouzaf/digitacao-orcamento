@@ -114,14 +114,14 @@
                     <tbody>
                         @for(item of listaItensOrcamento(); track item; let i = $index){
                         <tr>
-                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}">{{item.descricao}}</td>
-                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}" class="text-end">
+                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() === i}">{{item.descricao}}</td>
+                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() === i}" class="text-end">
                                 {{item.quantidade | currency:'BRL':''}}</td>
-                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}" class="text-end">
+                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() === i}" class="text-end">
                                 {{item.unitario | currency:'BRL':''}}</td>
-                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}" class="text-end">
+                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() === i}" class="text-end">
                                 {{item.subtotal | currency:'BRL':''}}</td>
-                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}">
+                            <td [ngClass]="{'cor-alteracao': indexEmAlteracao() === i}">
                                 <button (click)="alterarItem(item, i)" type="button"
                                     class="btn btn-sem-padding me-3 color-botao" title="Alterar">
                                     <i class="bi bi-pencil"></i>
