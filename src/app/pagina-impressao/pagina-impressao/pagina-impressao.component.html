@@ -14,8 +14,8 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th class="w-20 text-end">Quantidade</th>
 				<th class="w-40">Descrição</th>
+				<th class="w-20 text-end">Quantidade</th>
 				<th class="w-20 text-end">Unitário (R$)</th>
 				<th class="w-20 text-end">Total (R$)</th>
 			</tr>
@@ -23,18 +23,10 @@
 		<tbody>
 			@for(item of listaItensOrcamento(); track item){
 			<tr>
-				<td class="text-end">
-					{{item.quantidade}}
-				</td>
-				<td>
-					{{item.descricao}}
-				</td>
-				<td class="text-end">
-					{{item.unitario}}
-				</td>
-				<td class="text-end">
-					{{item.subtotal}}
-				</td>
+				<td>{{item.descricao}}</td>
+				<td class="text-end">{{item.quantidade}}</td>
+				<td class="text-end">{{item.unitario}}</td>
+				<td class="text-end">{{item.subtotal}}</td>
 			</tr>
 			}
 
@@ -43,7 +35,13 @@
 </div>
 
 <div class="bottom-bar">
-	<div class="data">DATA: <span class="span-linha-b-2">{{dataAtual().getDate()}} / {{dataAtual().getMonth() + 1}} / {{dataAtual().getFullYear()}}</span></div>
-	<div class="total">TOTAL (R$): <span class="total-box text-center">{{total()}}</span></div>
+	<div class="data">DATA: <span class="span-linha-b-2">{{dataAtual().getDate()}} / {{dataAtual().getMonth() + 1}} /
+			{{dataAtual().getFullYear()}}</span>
+	</div>
+
+	<!--todo melhorar ese campo-->
+	<div class="total">Total: <input class="total-box" currencyMask
+			[options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" [value]="total()">
+	</div>
 </div>
 <router-outlet></router-outlet>

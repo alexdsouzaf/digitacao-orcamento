@@ -28,8 +28,13 @@ input{
 
 input:focus{
     background-color:#292929;
+    color: white;
 }
 
 .input-sem-bg-color {
     background-color: transparent;
+}
+
+.color-botao{
+    color: white;
 }

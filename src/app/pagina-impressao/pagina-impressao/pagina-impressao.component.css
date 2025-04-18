@@ -55,7 +55,7 @@
 }
 
 .total-box {
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     width: 120px;
     height: 30px;
     display: inline-block;
@@ -75,8 +75,8 @@
 }
 
 /*referencia no ts do componente*/
-@media screen {
+/* @media screen {
     :host {
         display: none;
     }
-}
+} */

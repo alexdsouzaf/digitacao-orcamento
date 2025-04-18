@@ -15,7 +15,7 @@
             <!--todo: quero mudar esses inputs e essas labels soltas para um componente com floating label-->
             <div class="card-body">
                 <div class="row g-3">
-                    
+
                     <div class="col-4">
                         <div class="mb-3">
                             <label class="form-label">Cliente</label>
@@ -27,14 +27,16 @@
                     <div class="col-2">
                         <div class="mb-3">
                             <label class="form-label">E-mail</label>
-                            <input type="email" class="form-control form-control-sm" [formControl]="clienteForm.controls.email">
+                            <input type="email" class="form-control form-control-sm"
+                                [formControl]="clienteForm.controls.email">
                         </div>
                     </div>
 
                     <div class="col-4">
                         <div class="mb-3">
                             <label class="form-label">Endereço</label>
-                            <input type="text" class="form-control form-control-sm" [formControl]="clienteForm.controls.endereco">
+                            <input type="text" class="form-control form-control-sm"
+                                [formControl]="clienteForm.controls.endereco">
                         </div>
                     </div>
 
@@ -61,23 +63,26 @@
                     <div class="col-8">
                         <div class="mb-3">
                             <label class="form-label">Descrição</label>
-                            <input type="text" class="form-control form-control-sm" [formControl]="itemForm.controls.descricao">
+                            <input type="text" class="form-control form-control-sm"
+                                [formControl]="itemForm.controls.descricao">
                         </div>
                     </div>
 
                     <div class="col-2">
                         <div class="mb-3">
                             <label class="form-label">Quantidade</label>
-                            <input type="text" class="form-control form-control-sm" [formControl]="itemForm.controls.quantidade"
-                                currencyMask [options]="{ prefix: '', thousands: '.', decimal: ',' }">
+                            <input type="text" class="form-control form-control-sm"
+                                [formControl]="itemForm.controls.quantidade" currencyMask
+                                [options]="{ prefix: '', thousands: '.', decimal: ',' }">
                         </div>
                     </div>
 
                     <div class="col-2">
                         <div class="mb-3">
                             <label class="form-label">Valor Unitário</label>
-                            <input type="text" class="form-control form-control-sm" [formControl]="itemForm.controls.unitario"
-                                currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+                            <input type="text" class="form-control form-control-sm"
+                                [formControl]="itemForm.controls.unitario" currencyMask
+                                [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
                         </div>
                     </div>
                 </div>
@@ -111,17 +116,17 @@
                         <tr>
                             <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}">{{item.descricao}}</td>
                             <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}" class="text-end">
-                                {{item.quantidade}}</td>
+                                {{item.quantidade | currency:'BRL':''}}</td>
                             <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}" class="text-end">
-                                {{item.unitario | currency:'BRL'}}</td>
+                                {{item.unitario | currency:'BRL':''}}</td>
                             <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}" class="text-end">
-                                {{item.subtotal | currency:'BRL'}}</td>
+                                {{item.subtotal | currency:'BRL':''}}</td>
                             <td [ngClass]="{'cor-alteracao': indexEmAlteracao() !== -1}">
-                                <button (click)="alterarItem(item, i)" type="button" class="btn btn-sem-padding me-3"
-                                    title="Alterar">
+                                <button (click)="alterarItem(item, i)" type="button"
+                                    class="btn btn-sem-padding me-3 color-botao" title="Alterar">
                                     <i class="bi bi-pencil"></i>
                                 </button>
-                                <button (click)="removerItem(i)" type="button" class="btn btn-sem-padding"
+                                <button (click)="removerItem(i)" type="button" class="btn btn-sem-padding color-botao"
                                     title="Remover">
                                     <i class="bi bi-trash"></i>
                                 </button>

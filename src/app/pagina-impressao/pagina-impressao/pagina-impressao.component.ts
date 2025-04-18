@@ -4,10 +4,11 @@ import { OrcamentoService } from '../../service/orcamentoService';
 import { OrcamentoModelForm } from '../../models/orcamentoModel';
 import { ItemModel } from '../../models/itemModel';
 import { ClienteModelForm } from '../../models/clienteModel';
+import { NgxCurrencyDirective } from 'ngx-currency';
 
 @Component({
 	selector: 'app-pagina-impressao',
-	imports: [RouterOutlet],
+	imports: [RouterOutlet, NgxCurrencyDirective],
 	templateUrl: './pagina-impressao.component.html',
 	styleUrl: './pagina-impressao.component.css'
 })
