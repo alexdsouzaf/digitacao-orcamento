@@ -24,9 +24,9 @@
 			@for(item of listaItensOrcamento(); track item){
 			<tr>
 				<td>{{item.descricao}}</td>
-				<td class="text-end">{{item.quantidade}}</td>
-				<td class="text-end">{{item.unitario}}</td>
-				<td class="text-end">{{item.subtotal}}</td>
+				<td class="text-end">{{item.quantidade | currency:'BRL':''}}</td>
+				<td class="text-end">{{item.unitario | currency:'BRL':''}}</td>
+				<td class="text-end">{{item.subtotal | currency:'BRL':''}}</td>
 			</tr>
 			}
 
@@ -39,7 +39,6 @@
 			{{dataAtual().getFullYear()}}</span>
 	</div>
 
-	<!--todo melhorar ese campo-->
 	<div class="total">Total: <input class="total-box" currencyMask
 			[options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" [value]="total()">
 	</div>
